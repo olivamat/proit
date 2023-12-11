@@ -1,5 +1,6 @@
 function greet() {
-    alert("Привіт із зовнішнього файлу!");
+    var d = new Date();
+    alert(`Зараз в Кієві  ${d}`);
 };
 
 
