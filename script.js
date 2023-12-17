@@ -1,20 +1,29 @@
-let n = 1;
-for(i=0; i<10; i++) {
-    console.log("Виводимо " + n);
-    n+=1;
+// function greeting(name) {
+//     console.log(`Hello ${name}`);
+// }
+
+// function alertName(name) {
+//     alert(`Hello ${name}`);
+// }
+
+// function inputName(callback) {
+//     let name = prompt("Input your name");
+//     callback(name);
+// }
+
+// inputName(alertName);
+
+let timer = document.getElementById("timer");
+let seconds = 10;
+timer.textContent = seconds;
+
+function timerUpdate() {
+    seconds--;
+    timer.textContent = seconds;
+    if(seconds === 0) {
+        timer.textContent = "Time is up!";
+        clearInterval(timerout);
+    }
 }
 
-let phone = {
-    brand: "Iphone",
-    color: "black",
-    wight: 123
-}
-
-for (let key in phone) {
-    console.log(key + ': ' + phone[key]);
-}
-
-let numbers = [1, 2, 3, 4, 5];
-
-let newNumbers = [... numbers.slice(0, 2), 6, 7, ...numbers.slice(2, 5)];
-console.log(newNumbers);
+let timerout = setInterval(timerUpdate, 1000);
