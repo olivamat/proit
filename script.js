@@ -54,3 +54,11 @@ p.classList.toggle("newClass3");
 console.log(p.classList);
 p.classList.toggle("newClass3");
 console.log(p.classList);
+
+let obj = {name: "Oleh",
+age: 35,
+hobbis: ["coding", "garding", "driving"]};
+console.log(obj);
+let json = JSON.stringify(obj);
+console.log(json);
+console.log(JSON.parse(json));
