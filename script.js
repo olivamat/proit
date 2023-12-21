@@ -27,3 +27,30 @@ function timerUpdate() {
 }
 
 let timerout = setInterval(timerUpdate, 1000);
+
+let button1 = document.querySelector("#myButton");
+let button2 = document.querySelector("#myButtonBlue");
+let header = document.querySelector("#header");
+
+// console.log(button);
+button1.addEventListener("click", function() {
+    // alert("Button click!");
+    // console.dir(document.body);
+    header.style.color = "red";
+});
+
+button2.addEventListener("click", function() {
+    // alert("Button click!");
+    // console.dir(document.body);
+    header.style.color = "blue";
+});
+let p = document.querySelector(".pteg");
+p.classList.add("newClass");
+p.classList.add("newClass2");
+p.classList.remove("pteg");
+p.classList.toggle("newClass3");
+console.log(p.classList);
+p.classList.toggle("newClass3");
+console.log(p.classList);
+p.classList.toggle("newClass3");
+console.log(p.classList);

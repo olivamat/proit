@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Регулярні вирази</h1>
+    <p>Призанчені для перевірки рядків на відповідність певним умовам</p>
+    <p>Основні методи test and match</p>
+    <script>
+        let pattern = /hello/;
+// /o/g всі о 
+// о/і незалежно від регістру
+// d{3} три цифри
+// d+ будь-яка кількість цифр
+
+        let text = "hello world";
+
+        let ismatches = pattern.test(text);
+        console.log(ismatches);
+    </script>
+
+</body>
+</html>

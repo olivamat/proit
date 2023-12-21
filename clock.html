@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Clock</p>
+    <p id="clock">Clock</p>
+    <p id="message"> </p>
+    <a href="/index.html">Повернутися</a>
+    <script>
+        
+
+        function updateclock() {
+        let clock = document.getElementById("clock");
+        let time = new Date();
+        let hours = time.getHours();
+        let minutes = time.getMinutes();
+        let seconds = time.getSeconds();
+        hours = hours <10? "0" + hours : hours;
+        minutes = minutes<10 ? "0 " + minutes : minutes;
+        seconds = seconds<10 ? "0" + seconds : seconds;
+        clock.innerText = `${hours} : ${minutes} : ${seconds}`;
+
+        }
+
+        let inputTimeStop = 0;
+        // console.log(inputTimeStop);
+        let timeinterval = 0;
+
+        function startClock() {
+        inputTimeStop = ("Введіть час зупинки годинника в мілісекундах");
+
+        timeinterval =  setInterval(updateclock, 1000);
+
+        }
+
+        startClock();
+        
+        let messageTimeUp = document.getElementById("message");
+
+
+        setTimeout(stopTime, inputTimeStop);
+        function stopTime() {
+            clearInterval(timeinterval);
+            // clearInterval(timeinterval);
+            messageTimeUp.style.display = "block";
+            messageTimeUp.innerText = `Clock is stop after ${inputTimeStop/1000} seconds!`;
+            let repet = prompt("Введіть y якщо хочете перезапустити годинник, або n якщо ні");
+            if(repet === "y") {
+                console.log(repet);
+                startClock();
+            };
+            console.log("10 seconds up");
+        }
+
+
+        
+    </script>
+</body>
+</html>
