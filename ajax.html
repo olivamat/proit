@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product{
+            background-color: aqua;
+            margin: 10px;
+            padding: 10px;
+            width: 280px;
+            box-shadow: 0 0 10px rgb(48, 103, 166);
+        }
+        .product h3 {
+            color: blue;
+        }
+        .product p {
+            color: rgb(45, 180, 41);
+        }
+        .product p:nth-child(2)::before {
+            content: "$";
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Використання ajax</h1>
+    <p>Асінхронний javascript and xml</p>
+    <a href="/index.html">Back to home</a>
+<div id="container"></div>
+    <script>
+        let contaner = document.getElementById('container');
+        let xlr = new XMLHttpRequest();
+        xlr.open('GET', 'https://dummyjson.com/products');
+        xlr.send();
+        xlr.onload = function() {
+            if(xlr.status === 200) {
+                const data = JSON.parse(xlr.responseText);
+                const products = data.products;
+
+                for(let i = 0; i < products.length; i++){
+                    let product =products[i];
+
+                    let element = document.createElement("div");
+                    element.className = "product";
+                    element.innerHTML = `
+                    <h3>${product.title}</h3>
+                    <p>${product.price}</p>
+                    <p>${product.rating}</p>
+                    `
+                    contaner.appendChild(element);
+                }
+                
+            } else {
+                console.log("error fetching data");
+            }
+            
+        }
+     </script>
+</body>
+</html>

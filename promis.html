@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Promis</h1>
+    <p>Використання then та catch</p>
+    <p>Або використання асинхронної функції async await та try catch</p>
+    
+    <a href="/index.html">Back to home</a>
+
+    <script>
+        let checkWhether = new Promise((resolve, rejeckt) => {
+            setTimeout(() => {
+                if (Math.random() > 0.5) {
+                    resolve("Sunny");
+                } else {
+                    rejeckt("Falled to get weather data");
+                }
+            }, 2000 )
+        });
+        // старий метод
+        checkWhether.
+        then(weather => console.log(`Weather is ${weather}.`)).
+        catch(error => console.log(`Error ${error}`));
+        // новий метод
+        async function getWeather() {
+            try {
+                let weather = await checkWhether;
+                console.log(`Weather is ${weather}.`);
+            } catch (error){
+                console.log(`Error ${error}`);
+            }
+        }
+        getWeather();
+    </script>
+</body>
+</html>
