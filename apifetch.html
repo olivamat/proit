@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Використання API Fetch</h1>
+    <p>Oтримання даних з сервера</p>
+    <a href="/index.html">back to home</a>
+    <script>
+        fetch('https://dummyjson.com/users/1')
+        .then((response) => {
+            if(response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Something went wrong');
+            }
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+        fetch('https://dummyjson.com/users/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                firstName: 'Muhammad',
+                lastName: 'Ovi',
+                age: 250,
+                phone: '24680-12127817',
+                /* other user data */
+            })
+            })
+        .then(res => res.json())
+        .then(console.log);
+    </script>
+</body>
+</html>

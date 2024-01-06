@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #product {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            border-radius: 50%;
+            /* border: 1px solid blue; */
+            margin: 0;
+            position: fixed;
+            top: 500px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="product"></div>
+    <script>
+        let element = document.getElementById("product");
+        let position = 0;
+        let napr = 1;
+            // console.log(window.innerHeight);
+        function animate() {
+            position-=napr;
+            console.log(position); 
+            console.log(napr);
+            element.style.transform = `translateY(${position}px)`;
+
+            if(position < 3*element.offsetHeight - window.innerHeight ) {
+                napr = -1;
+                let yes = confirm("Do you want to continue?");
+                if (!yes) {
+                    return;
+                }
+            } else if (position > 0) {
+                napr = 1;
+                let yes = confirm("Do you want to continue?");
+                if (!yes) {
+                    return;
+                }
+            }
+
+            requestAnimationFrame(animate);
+           
+        }
+        
+        animate();
+    </script>
+</body>
+</html>
