@@ -62,3 +62,11 @@ console.log(obj);
 let json = JSON.stringify(obj);
 console.log(json);
 console.log(JSON.parse(json));
+
+// showMessage(); видає помилку черех те що функциональний вираз ще не оголошено
+// якщо оголосити функцію то вона піднімається за рахунок hoisting
+const showMessage = function() {
+    console.log("It is a message");
+};
+showMessage();
+

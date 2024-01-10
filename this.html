@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Використання this у JS</h1>
+    <a href="/index.html">Back to home</a>
+    <p>У глобальному контексті this це window</p>
+    <p>Якщо викристовується як метод обєкту то викристовують this для того щоб звернутися саме до цього обєкту </p>
+    <p>Такоє this може використовуватися у конструкторах (функціях які використовуються для створення обєкту)!</p>
+    <script>
+        const person = {
+            name: "Oleh",
+            old: 56,
+            sayHello: function(){
+                console.log(`Hello ${this.name}`);
+            },
+            getOlder: function() {
+                this.old++;
+                console.log(`Heppy birthday! You are ${this.old} years!`);
+            }
+        }
+        person.sayHello();
+        person.getOlder();
+
+        function Car(made, model) {
+            this.made = made;
+            this.model = model;
+            this.showInfo = function() {
+                console.log(`This car made ${this.made} and its model is ${this.model}!`)
+            };
+        };
+
+        const myCar = new Car("Nissan", "Leaf");
+        console.log(myCar);
+        myCar.showInfo();
+    </script>
+</body>
+</html>
