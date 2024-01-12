@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Замикання</h1>
+    <p>лічильник за допомогою замикання</p>
+    <button id="button1">Click my and add 1</button>
+    <button id="button2">Click my and minus 1</button>
+    
+    <p id="display">0</p>
+    <a href="/index.html">Back to home</a>
+    <script>
+        const makeCounter = () => {
+            let count = 0;
+            return () => {
+                count++;
+                return count;
+            };
+        };
+
+        let counter = makeCounter();
+
+        console.log(counter());
+        console.log(counter());
+        console.log(counter());
+
+        // створення закритого акаунту
+        const createBankAccount = (initialBalans) => {
+            let balans = initialBalans;
+            return {
+                getBalans: () => {
+                    return balans;
+                },
+                deposit: (amount) => {
+                    return balans +=amount;
+                },
+                withdraw: (amount) => {
+                    return balans -=amount;
+                } 
+            }
+        }
+
+        const myBankAcount = createBankAccount(100);
+        console.log(myBankAcount.getBalans());
+        console.log(myBankAcount.deposit(50));
+        console.log(myBankAcount.getBalans());
+        console.log(myBankAcount.withdraw(25));
+        console.log(myBankAcount.getBalans());
+        //створення фабрики функцій
+        function makeGreetingFunction(lang) {
+            return function(name) {
+                switch(lang) {
+                case "en":
+                return `Hello ${name} !`;
+                case "fr":
+                return `Bonjor ${name} !`;
+                case "sp": 
+                return `Hola ${name} !`;
+                default:
+                return "Unknow langwich";
+                };
+            };
+        } ;
+
+        let greetEn = makeGreetingFunction("en");
+        let greetFr = makeGreetingFunction("fr");
+        let greetSp = makeGreetingFunction("sp");
+
+        console.log(greetEn("Alisa"));
+        
+        console.log(greetFr("Bob"));
+
+        console.log(greetSp("Petro"));
+
+
+        //створення личильника
+        window.onload = function() {
+            let counter = 0;
+            let button1 = document.getElementById("button1");
+            let button2 = document.getElementById("button2");
+            
+            let display = document.getElementById("display")
+            button1.onclick = function() {
+                counter++;
+                display.innerHTML = counter;
+            };
+
+            button2.onclick = function() {
+                counter--;
+                display.innerHTML = counter;
+            };
+
+        }
+
+
+    </script>
+</body>
+</html>

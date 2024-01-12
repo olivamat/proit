@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototape</title>
+</head>
+<body>
+    <p>Прототипи у JS використовують для створення обєктів</p>
+    <a href="/index.html">Back to home!!!</a>
+    <script>
+        // Використання прототипів для створення обєкту
+        // function Animal(name) {
+        //     this.name = name;
+        // };
+
+        // Animal.prototype.eat = function(){
+        //     console.log(`${this.name} is eating!!`);
+
+        // } ;
+        // function Dog(name, breed) {
+        //     Animal.call(this, name);
+        //     this.breed = breed;
+        // };
+
+        
+        // Dog.prototype = Object.create(Animal.prototype);
+        // Dog.prototype.constructor = Dog;
+
+        // Dog.prototype.bark = function(){
+        //     console.log(`${this.name} is barking!!`);
+        // };
+
+
+            // використання класів для створення обєктів 
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+            eat() {
+                console.log(`${this.name} is eating!!`);
+            }
+        }
+
+        class Dog extends Animal {
+            constructor(name, breed) {
+                super(name);
+                this.breed = breed;
+            }
+            bark() {
+                console.log(`${this.name} is barking!!`);
+            }
+        }
+
+        const bonja = new Dog("Bonja", "JH");
+
+        bonja.eat();
+        bonja.bark();
+
+         </script>
+</body>
+</html>
