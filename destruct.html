@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>деструктуризація масивів та обєктів</h1>
+    <a href="/index.html">Back to home</a>
+    <script>
+        let mas = [1, 2, 3];
+        // let [a, b, c] = mas;
+        let [a, b, c, d=4] = mas;
+
+        console.log(`a=${a} b=${b} c=${c} in mas[${mas}]`);
+        console.log(d);
+// пепепризначення в масиві
+        [a, b, c, d] = [d, c, b, a];
+
+        console.log(`a=${a} b=${b} c=${c} d=${d} in mas[${mas}]`);
+
+        let person = {
+            name: "Oleh",
+            age: 56,
+            gender: "male",
+            occupation: "scientist",
+            addres:{
+                city:"Kyiv",
+                country:"Ukraine",
+            }
+        }
+        
+        let {name, age, gender, occupation, addres:{city, country}} = person;
+
+        console.log(name, age, gender, occupation, city, country);
+
+let sumandprodakt = (a, b) => {
+    return [a+b, a*b];
+};
+// Звичайне присвоювання
+// let result = sumandprodakt(1, 20);
+// let sum = result[0];
+// let produkt = result[1];
+// Використання деструктуризації
+let [sum, produkt] = sumandprodakt(1,20);
+console.log(sum, produkt);
+
+let extractInfo = (obj) => {
+    let {name, age, gender, occupation, addres:{city, country}} = obj;
+    return `${name} is ${age} year old, ${gender}, live in ${city} (${country})!`;
+}
+let message = extractInfo(person);
+console.log(message);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Генераторі та ітератори</h1>
+    <a href="/index.html">Back to home</a>
+    <script>
+        //Напишіть функцію-генератор `generateEvenNumbers()`,
+        // яка при кожному виклику методу `.next()` повертатиме наступне парне число, починаючи з нуля.
+        function* generatorEvenNumbers() {
+            let i=0;
+            while(true) {
+                yield i+=2;
+            }
+        };
+
+        let objGenerator = generatorEvenNumbers();
+
+        console.log(objGenerator.next().value);
+        console.log(objGenerator.next().value);
+        console.log(objGenerator.next().value);
+        console.log(objGenerator.next().value);
+
+    </script>
+</body>
+</html>

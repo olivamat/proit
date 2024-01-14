@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Використання методів map, filter and reduce</h1>
+    <p>Ці методи використовуються для роботи з масивами</p>
+    <p>Map перетворює кожний елемент масива згідно з функцією</p>
+    <p>Filter фільтрує масив, reduce обєднує всі елементи масиву</p>
+    <a href="/index.html">Back to home</a>
+    <script>
+        let massiv = [1,2,3,4,5];
+        const add1 = massiv.map(n=>n+1);
+        console.log("massiv:"+massiv);
+
+        console.log("add1 стало:"+add1);
+        const filtred = add1.filter(n=> n>4);
+        console.log("filtred:"+ filtred);
+        const reduced = filtred.reduce((total, n)=>total+n, 10);
+        console.log("reduced: 10+5+6="+ reduced);
+        const allinone = massiv.map(n=>n+1).filter(n=>n>4).reduce((total, n)=>total+n,10);
+        console.log("allinone: застосовано одночасно map+filter+reduce="+ allinone);
+        const wprawa= massiv.map(n=>n*3).filter(n=>n>10).reduce((total, n)=>(total+n)/massiv.length, 0)
+        console.log("wprawa:"+ wprawa);
+        
+        
+
+    </script>
+</body>
+</html>
