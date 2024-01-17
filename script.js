@@ -70,3 +70,24 @@ const showMessage = function() {
 };
 showMessage();
 
+
+import {add, extract, multipltiplication, divide} from "./math.js";
+// import * as math from "./math.js";
+// math.add math.extract
+
+
+
+let result1 = add(1,2);
+console.log(result1);
+
+
+let result2 = extract(5,2);
+console.log(result2);
+
+
+let result3 = multipltiplication(4,2);
+console.log(result3);
+
+
+let result4 = divide(10,2);
+console.log(result4);
